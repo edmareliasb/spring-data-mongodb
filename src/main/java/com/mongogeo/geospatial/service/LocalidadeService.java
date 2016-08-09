@@ -1,5 +1,7 @@
 package com.mongogeo.geospatial.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,19 +20,34 @@ public class LocalidadeService {
      
         Localidade localidade = localidadeRepository.findByIdIbge(idIbge);
         
-        LocalidadeDTO dto = new LocalidadeDTO();
-        dto.setIdIbge(localidade.getIdIbge());
-        dto.setLocalidade(localidade.getLocalidade());
-        dto.setMunicipio(localidade.getMunicipio());
-        dto.setUf(localidade.getUf());
-        
-        GeoDTO geoDto = new GeoDTO();
-        geoDto.setLatitude(localidade.getGeo().getLatitude());
-        geoDto.setLongitude(localidade.getGeo().getLongitude());
-        
-        dto.setGeoDto(geoDto);
-        
-        return dto;
+        if (localidade != null) {
+            
+            LocalidadeDTO dto = new LocalidadeDTO();
+            
+            dto.setIdIbge(localidade.getIdIbge());
+            dto.setLocalidade(localidade.getLocalidade());
+            dto.setMunicipio(localidade.getMunicipio());
+            dto.setUf(localidade.getUf());
+            
+            GeoDTO geoDto = new GeoDTO();
+            geoDto.setLatitude(localidade.getGeo().getLatitude());
+            geoDto.setLongitude(localidade.getGeo().getLongitude());
+            
+            dto.setGeo(geoDto);
+            
+            return dto;
+            
+        } else {
+            return null;
+        }
+    }
+    
+    public Double calcularDistanciaEntreCidades () {
+        return null;
+    }
+    
+    public List<Localidade> buscarLocalidadesPeloRaioEmKM() {
+        return null;
     }
     
 }

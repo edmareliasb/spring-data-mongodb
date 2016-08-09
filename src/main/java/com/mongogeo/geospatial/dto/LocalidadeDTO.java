@@ -14,7 +14,7 @@ public class LocalidadeDTO implements Serializable {
 
     private String localidade;
 
-    private GeoDTO geoDto;
+    private GeoDTO geo;
 
     public long getIdIbge() {
         return idIbge;
@@ -48,12 +48,12 @@ public class LocalidadeDTO implements Serializable {
         this.localidade = localidade;
     }
 
-    public GeoDTO getGeoDto() {
-        return geoDto;
+    public GeoDTO getGeo() {
+        return geo;
     }
 
-    public void setGeoDto(GeoDTO geoDto) {
-        this.geoDto = geoDto;
+    public void setGeo(GeoDTO geo) {
+        this.geo = geo;
     }
 
 }
